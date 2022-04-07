@@ -1,0 +1,25 @@
+<div class="container">
+  <% if @posts.present? %>
+    <h2 class="">All Posts</h2>
+    <div class="row">
+      <% @posts.each do |p| %>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title"><%= p.title%></h5>
+                <p class="card-text"><%= p.content%></p>
+                <a href="<%= post_path(p.id)%>" class="btn btn-primary">View Post</a>
+              </div>
+            </div>
+        </div>
+      <% end %>
+    </div>
+  <%else%>
+  <div class="row">
+    <div class="col-md-4">
+      <h3>No posts found</h3>
+      <a href="<%= new_post_path()%>">Create Post</a>
+    </div>
+  </div>
+  <%end%>
+</div>

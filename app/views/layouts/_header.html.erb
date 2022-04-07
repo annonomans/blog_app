@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="nav">
+			  <!-- <a class="nav-link" href="#">Home</a> -->
+			  <% if @current_user%>
+			  	<a class="nav-link" href="<%= new_post_path()%>">Create Post</a>
+			  	<a class="nav-link" href="<%= logout_path()%>">Log out</a>
+			  <%end%>
+			</nav>
+		</div>
+	</div>
+</div>

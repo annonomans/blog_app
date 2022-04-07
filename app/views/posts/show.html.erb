@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h2><%=@post.title%></h2>
+			<p><%=@post.content%></p>
+			<div>
+				<% if @post.comments.present? %>
+				<h6>comments:</h6>
+					<ul>
+						<% @post.comments.each do |c|%>
+							<li><b><%=c.user.name%>:</b><%=c.body%></li>
+						<%end%>
+					</ul>
+				<%end%>
+			</div>
+		</div>
+	</div>
+	<% if @current_user.present? %>
+	<div class="row">
+		<div class="col-md-6">
+			<form action="<%=comments_path()%>" method="POST"				>
+	            <div class="form-group">
+	                <label for="exampleInputEmail1">Add comment</label>
+	                <input type="hidden" name="post_id" value="<%=@post.id%>">
+	                <input type="text" class="form-control" placeholder="add comment" name="body">
+	            </div>
+	            <button type="submit" class="btn btn-primary">Submit</button>
+         </form>  
+		</div>
+	</div>
+	<%end%>
+</div>

@@ -15,12 +15,12 @@ class PostsController < ApplicationController
 
 	def create 
 		@post = Post.new(post_params)
-		if @post.save!
+		if @post.save
 			flash[:success] = "Post created"
 			redirect_to posts_path()
 		else
 			flash[:notice] = @post.errors.full_messages.to_sentence
-			redirect_to posts_path()
+			redirect_to new_post_path()
 		end
 	end
 

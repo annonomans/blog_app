@@ -1,17 +1,11 @@
 class ApplicationController < ActionController::Base
-	before_action :authorize_user
+	before_action :authenticate_user!
 
-	def authorize_user
-		if session[:user_id].present?
-			@current_user = User.find(session[:user_id])
-			if !@current_user
-				flash[:notice] = "Login required"
-				redirect_to '/'
-			else
-				return true
-			end
-		else
-			return false
-		end
+	def after_sign_in_path_for(resource)
+		posts_path()
+	end
+
+	def after_sign_up_path_for(resource)
+		posts_path()
 	end
 end

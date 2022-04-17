@@ -29,7 +29,7 @@ development:
   host: localhost
   pool: 5
   username: annonomans
-  password: OpenPg@0496
+  password: ENV["DATABASE_PASSWORD"]
   timeout: 5000
  
   # Connect on a TCP socket. Omitted by default since the client uses a

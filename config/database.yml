@@ -29,7 +29,7 @@ development:
   host: localhost
   pool: 5
   username: annonomans
-  password: ENV["DATABASE_PASSWORD"]
+  password: OpenPg@0496
   timeout: 5000
  
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -59,7 +59,7 @@ test:
   database: blog_app_test
   pool: 5
   username: annonomans
-  password: ENV["DATABASE_PASSWORD"]
+  password: OpenPg@0496
   timeout: 5000
 
 
@@ -69,5 +69,5 @@ production:
   database: blog_app_prod
   pool: 5
   username: annonomans
-  password: ENV["DATABASE_PASSWORD"]
+  password: OpenPg@0496
   timeout: 5000
